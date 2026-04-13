@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Ganância - Ariel</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">  <link rel="stylesheet" href="style.css">
+
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+</head>
+
+<body>
+
+<div id="bg"></div>
+<div id="overlay"></div>
+
+<div id="container">
+
+  <!-- PLAYER -->
+  <div id="player">
+    <img id="cover" src="./capa.jpg" alt="Capa">
+
+    <audio id="audio" src="./musica.mp3"></audio>
+
+    <div id="controls">
+      <button id="playBtn" onclick="togglePlay()">
+        <ion-icon name="play"></ion-icon>
+      </button>
+
+      <canvas id="wave"></canvas>
+    </div>
+  </div>
+
+  <!-- INFO -->
+  <div id="info">
+    <h1 class="logo">GANÂNCIA</h1>
+    <p class="artist">ARIEL</p>
+  </div>
+
+  <!-- LINKS -->
+  <div id="links">
+    <div class="col">
+      <a href="#"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/spotify.svg" class="icon">Spotify</a>
+      <a href="#"><ion-icon name="musical-notes-outline"></ion-icon>Apple Music</a>
+      <a href="#"><ion-icon name="logo-youtube"></ion-icon>YouTube</a>
+    </div>
+
+    <div class="col">
+      <a href="#"><ion-icon name="cloud"></ion-icon>SoundCloud</a>
+      <a href="#"><ion-icon name="logo-instagram"></ion-icon>Instagram</a>
+      <button onclick="toggleContato()"><ion-icon name="mail"></ion-icon>Contato</button>
+    </div>
+  </div>
+
+  <!-- CONTATO -->
+  <div id="contato">
+    <p>📩 gotalktoariel@gmail.com</p>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    © 2026 Ariel. Site desenvolvido por Julia Pereira.
+  </footer>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
