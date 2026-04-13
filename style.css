@@ -110,13 +110,14 @@ body {
   display: flex;
   flex-direction: column;
   gap: 12px;
+  width: 100%; /* Garante que as colunas tentem ocupar espaço igual */
 }
 
 .col a, .col button {
-  display: flex; /* Adicionado para alinhar ícone e texto */
+  display: flex; 
   align-items: center;
-  justify-content: center;
-  padding: 12px;
+  justify-content: flex-start; /* Alinhado à esquerda para o 'grid' interno funcionar */
+  padding: 12px 20px; /* Mais preenchimento lateral */
   border-radius: 30px;
   background: rgba(255,255,255,0.06);
   border: 1px solid rgba(255,255,255,0.12);
@@ -124,7 +125,8 @@ body {
   text-decoration: none;
   backdrop-filter: blur(10px);
   transition: 0.2s;
-  font-size: 14px; /* Fonte unificada */
+  font-size: 14px; 
+  cursor: pointer;
 }
 
 .col a:hover, .col button:hover {
@@ -132,12 +134,16 @@ body {
 }
 
 /* PADRONIZAÇÃO DE ÍCONES (ION-ICON E SPOTIFY) */
+/* Aqui está o truque: definir um min-width para o ícone */
 ion-icon, .icon {
-  width: 18px; /* Tamanho unificado */
-  height: 18px;
-  font-size: 18px;
-  margin-right: 6px;
+  width: 20px; 
+  height: 20px;
+  font-size: 20px;
+  margin-right: 12px; /* Espaço fixo entre ícone e texto */
   flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .icon {
