@@ -85,26 +85,38 @@ function toggleContato() {
   c.style.display = c.style.display === "block" ? "none" : "block"
 }
 
-/* CONTROLE DE TEMPO (15 SEGUNDOS) */
+/* CONTROLE DE TEMPO COM FADE-OUT */
 audio.addEventListener("timeupdate", () => {
-  if (audio.currentTime >= 57) { // 42s iniciais + 15s de trecho
-    audio.pause()
-    audio.currentTime = 42
-    btn.innerHTML = '<ion-icon name="play"></ion-icon>'
-    isPlaying = false
+  const startFade = 54; 
+  const endTime = 57;   
+
+  // Efeito de sumir o som gradualmente
+  if (audio.currentTime >= startFade && audio.currentTime < endTime) {
+    let remaining = (endTime - audio.currentTime) / (endTime - startFade);
+    audio.volume = Math.max(0, remaining);
   }
-})
+
+  // Parada total
+  if (audio.currentTime >= endTime) {
+    audio.pause();
+    audio.currentTime = 42;
+    audio.volume = 1; // Reseta para o próximo play
+    btn.innerHTML = '<ion-icon name="play"></ion-icon>';
+    isPlaying = false;
+  }
+});
 
 function togglePlay() {
   if (!isPlaying) {
 
     if (!audioCtx) setupAudio()
 
-    // Se estiver fora do trecho de 15s, volta para o início (42s)
+    // Reseta para o trecho correto se necessário
     if (audio.currentTime < 42 || audio.currentTime >= 57) {
       audio.currentTime = 42
     }
     
+    audio.volume = 1;
     audio.play()
 
     btn.innerHTML = '<ion-icon name="pause"></ion-icon>'
