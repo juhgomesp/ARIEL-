@@ -73,7 +73,7 @@ function drawWave() {
   ctx.stroke()
   ctx.shadowBlur = 0
 
-  /* MICRO MOVIMENTO NA CAPA (ELEGANTE) */
+  /* MICRO MOVIMENTO NA CAPA*/
   let intensity = bass / 1200
   cover.style.transform = `scale(${1 + intensity * 0.015})`
 }
